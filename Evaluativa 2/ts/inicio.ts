@@ -29,26 +29,23 @@ function verificarNumero(numero:any):boolean{
     return false;
 }
 function verificarRut(rut:any):Boolean{
+    let numeroId = rut.value.slice(0,rut.value.length-2);
     let numeroVerificador = rut.value.slice(rut.value.length-1);
     let guion = rut.value.slice(rut.value.length-2,rut.value.length-1);
 
-    if(isNaN(parseInt(numeroVerificador)) && numeroVerificador != "K"){
-        console.log((numeroVerificador));
-        console.log(isNaN(parseInt(numeroVerificador)));
+    if(isNaN(parseInt(numeroVerificador)) && numeroVerificador.toUpperCase() != "K"){
         alert("RUT invalido contiene digito verificador invalido.");
         return false;
-        
     }
-
-    if(guion != "-"){
-        alert("RUT invalido, debe tener guion sin puntos.");
+    
+    if(guion != "-" || numeroId.includes(".") ){
+        alert("RUT invalido, debe tener guion y no contener puntos.");
         return false;
     }
 
     return true;
 }
 function verificarCheckbox(checks:any){
-    console.log(checks[1].checked);
     let aux = checks;
 
     for (let isTrue of checks){

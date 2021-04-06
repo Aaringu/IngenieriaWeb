@@ -23,22 +23,20 @@ function verificarNumero(numero) {
     return false;
 }
 function verificarRut(rut) {
+    var numeroId = rut.value.slice(0, rut.value.length - 2);
     var numeroVerificador = rut.value.slice(rut.value.length - 1);
     var guion = rut.value.slice(rut.value.length - 2, rut.value.length - 1);
-    if (isNaN(parseInt(numeroVerificador)) && numeroVerificador != "K") {
-        console.log((numeroVerificador));
-        console.log(isNaN(parseInt(numeroVerificador)));
+    if (isNaN(parseInt(numeroVerificador)) && numeroVerificador.toUpperCase() != "K") {
         alert("RUT invalido contiene digito verificador invalido.");
         return false;
     }
-    if (guion != "-") {
-        alert("RUT invalido, debe tener guion sin puntos.");
+    if (guion != "-" || numeroId.includes(".")) {
+        alert("RUT invalido, debe tener guion y no contener puntos.");
         return false;
     }
     return true;
 }
 function verificarCheckbox(checks) {
-    console.log(checks[1].checked);
     var aux = checks;
     for (var _i = 0, checks_1 = checks; _i < checks_1.length; _i++) {
         var isTrue = checks_1[_i];
