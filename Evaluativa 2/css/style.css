@@ -1,0 +1,27 @@
+
+body{
+    padding-left: 10px;
+}
+
+div{
+    margin-top: 10px;
+}
+
+#Datos{
+    padding-bottom: 0.8em;
+}
+
+.TextoLargo {
+    width: 20%;
+    height: 0.1em;
+    text-align: left;
+    display: inline-block;
+}
+
+#conocimiento{
+    width: 50%;
+}
+
+#descripcion{
+    width: 50%;
+}
