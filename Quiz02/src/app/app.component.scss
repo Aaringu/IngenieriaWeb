@@ -1,0 +1,80 @@
+
+#home ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#home ul li {
+    display: block;
+    float: left;
+    padding: 10px;
+    color: black;
+    text-align: center;
+    position: relative;
+    font-size: 30px;
+}
+
+#home a{
+    text-decoration: none;
+    color: black;
+}
+
+#home a.active{
+    color: cyan;
+}
+
+
+#cards ul{
+    list-style-type: none;
+	text-align: left;
+	padding-left: 2%;
+	padding-right: 2px;
+	align-items: stretch;
+    display: inline-block;
+    
+}
+
+#cards ul li{
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 2%;
+    margin: 5px;
+    
+}
+
+#cards ul li span{
+    display: block;
+    overflow: hidden;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+#cards ul li i{
+   font-size: 70px;
+   float: left;
+}
+
+#adicionar p {
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+#adicionar #genero{
+    text-align: left;
+}
+
+#adicionar section input[type=text]{
+    width: 100%;
+    height: 18px;
+}
+
+#adicionar #submits{
+    text-align: right;
+}
+
+#adicionar form{
+    width: 50%;
+    margin: 10px;
+}

@@ -1,0 +1,95 @@
+
+<header><h1><i class="fas fa-user-ninja"></i> Clientes</h1> </header>
+
+<nav id="home">
+  <ul>
+      <li><i class="fas fa-align-justify"></i> <a (click)="setMostrar(1)"> Vista Card </a></li>
+      <li><i class="fas fa-align-justify"></i> <a  (click)="setMostrar(2)"> Lista </a></li>
+      <li><i class="fas fa-plus-circle"></i> <a  (click)="setMostrar(3)"> Adicionar </a></li>
+  </ul>
+</nav>
+
+<section id="cards" *ngIf="mostrar==1">
+  <ul>
+    <li *ngFor="let item of lista">
+        <i *ngIf="item.genero == 'Hombre'" class="fas fa-male"></i>
+        <i *ngIf="item.genero == 'Mujer'" class="fas fa-female"></i>
+        <i *ngIf="item.genero == 'Otros'" class="fas fa-snowman"></i>
+        <span> {{item.nombre}} {{item.apellido}} </span>
+        <span> {{item.pais}}, {{item.ciudad}} </span>
+    </li>
+  </ul>
+
+</section>
+
+<section id="lista" *ngIf="mostrar==2">
+  <table>
+    <tr>
+        <th>Nombre Completo</th>
+        <th>Género</th>
+        <th>Pais</th>
+        <th>Ciudad</th>
+    </tr>
+    <tr *ngFor="let item of lista">
+        <td>
+            {{item.nombre}} {{item.apellido}}
+        </td>
+        <td>
+            {{item.genero}}
+        </td>
+        <td>
+            {{item.pais}}
+        </td>
+        <td>
+            {{item.ciudad}}
+        </td>
+    </tr>
+
+  </table>
+
+</section>
+
+<section id="adicionar" *ngIf="mostrar==3">
+  
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()" accept-charset="utf-8" novalidate>
+
+      <section>
+      Nombres
+      <p><input type="text" formControlName="nombre" size="40" required></p>
+      
+      Apellidos
+      <p><input type="text" formControlName="apellido" size="40" required></p>
+
+      Género
+      <p id ="genero">
+          <input type="radio" formControlName="genero" value="Mujer" required> Mujer
+          <input type="radio" formControlName="genero" value="Hombre" required> Hombre
+          <input type="radio" formControlName="genero" value="Otros" required> Otros
+      </p>
+
+      País 
+      <p> 
+      <select formControlName="pais" size="1" required>
+          <option value="Argentina">Argentina</option>
+          <option value="Brasil">Brasil</option>
+          <option value="Chile">Chile</option>
+          <option value="Colombia">Colombia</option>
+          <option value="Perú">Perú</option>
+      </select>
+      </p>
+      
+      Ciudad
+      <p> <input type="text" formControlName="ciudad" size="40" required></p>
+
+      </section>
+
+      <p id= "submits" >
+        <input type="submit" value="Enviar" [disabled] = "formulario.invalid">
+        <input type="reset" value="Borrar">
+      </p>
+
+  </form>
+
+</section>
+
+<router-outlet></router-outlet>
