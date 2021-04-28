@@ -35,8 +35,36 @@ export class AppComponent implements OnInit{
     
   }
 
+ 
   setMostrar(valor:number){
     this.mostrar = valor;
+
+    var elem = null;
+    if(valor == 1){ 
+      elem = document.getElementById("menu1"); 
+      if(elem != null) elem.style.color = "cyan";
+      elem = document.getElementById("menu2"); 
+      if(elem != null) elem.style.color = "black";
+      elem = document.getElementById("menu3"); 
+      if(elem != null) elem.style.color = "black";
+      }
+    else if(valor == 2){
+      elem = document.getElementById("menu1"); 
+      if(elem != null) elem.style.color = "black";
+      elem = document.getElementById("menu2"); 
+      if(elem != null) elem.style.color = "cyan";
+      elem = document.getElementById("menu3"); 
+      if(elem != null) elem.style.color = "black";
+     }
+    else if(valor == 3){
+      elem = document.getElementById("menu1"); 
+      if(elem != null) elem.style.color = "black";
+      elem = document.getElementById("menu2"); 
+      if(elem != null) elem.style.color = "black";
+      elem = document.getElementById("menu3"); 
+      if(elem != null) elem.style.color = "cyan";
+    }
+
   }
 
 }
